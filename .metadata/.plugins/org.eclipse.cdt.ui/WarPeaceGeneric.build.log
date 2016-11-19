@@ -1,0 +1,23 @@
+19:18:27 **** Incremental Build of configuration Debug for project WarPeaceGeneric ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+..\main.cpp: In function 'int main()':
+..\main.cpp:64:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(int i=0; i < names.size(); i++)
+                    ~~^~~~~~~~~~~~~~
+..\main.cpp:67:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        if(char_pos != string :: npos)
+           ~~~~~~~~~^~~~~~~~~
+..\main.cpp:73:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(int i=0; i < split_first_names.size(); i++)
+                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+        if((split_char_pos != string :: npos) && (line[split_char_pos + (split_first_names).at(i).size()] == '\0'))
+            ~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:81:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if((split_char_pos_l != string :: npos) && (split_char_pos_l == 0))
+             ~~~~~~~~~~~~~~~~~^~~~~~~~~
+g++ -o WarPeaceGeneric.exe main.o 
+
+19:18:28 Build Finished (took 1s.357ms)
+

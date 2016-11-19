@@ -1,0 +1,15 @@
+03:45:01 **** Rebuild of configuration Debug for project Assignment9Ae ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o prog.o "..\\prog.cpp" 
+..\prog.cpp: In function 'std::map<std::__cxx11::basic_string<char>, int> startingLetterFrequency(std::vector<std::__cxx11::basic_string<char> >)':
+..\prog.cpp:24:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i=0; i<words.size(); i++)
+               ~^~~~~~~~~~~~~
+..\prog.cpp:27:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int j=i+1; j<words.size(); j++)
+                  ~^~~~~~~~~~~~~
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Tester.o "..\\Tester.cpp" 
+g++ -o Assignment9Ae.exe Tester.o prog.o 
+
+03:45:04 Build Finished (took 2s.435ms)
+

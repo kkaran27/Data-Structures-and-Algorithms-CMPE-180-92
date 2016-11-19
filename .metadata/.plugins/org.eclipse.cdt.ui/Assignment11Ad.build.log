@@ -1,0 +1,32 @@
+18:28:32 **** Rebuild of configuration Debug for project Assignment11Ad ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Tester.o "..\\Tester.cpp" 
+..\Tester.cpp: In function 'void print(const std::vector<int>&)':
+..\Tester.cpp:14:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (int i = 0; i < table.size(); i++) {
+                    ~~^~~~~~~~~~~~~~
+..\Tester.cpp:17:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (i < table.size() - 1) cout << ", ";
+           ~~^~~~~~~~~~~~~~~~~~
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o hash.o "..\\hash.cpp" 
+..\hash.cpp: In function 'void remove(std::vector<int>&, int)':
+..\hash.cpp:29:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(i = h; i < table.size(); i++)
+               ~~^~~~~~~~~~~~~~
+..\hash.cpp:41:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int j = i+1; j < table.size(); j++)
+                      ~~^~~~~~~~~~~~~~
+..\hash.cpp:47:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      if(table[j]%table.size() != j)
+                                
+..\hash.cpp:54:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(int i = 0; i < elements.size(); i++)
+                   ~~^~~~~~~~~~~~~~~~~
+..\hash.cpp: In function 'void insert(std::vector<int>&, int)':
+..\hash.cpp:65:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = h; i < table.size(); i++)
+                    ~~^~~~~~~~~~~~~~
+g++ -o Assignment11Ad.exe Tester.o hash.o 
+
+18:28:34 Build Finished (took 1s.271ms)
+

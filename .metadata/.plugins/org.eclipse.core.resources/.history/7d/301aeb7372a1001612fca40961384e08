@@ -1,0 +1,35 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Nov 2, 2016
+ *      Author: Karan
+ */
+#include <string>
+#include "list.h"
+
+using namespace std;
+
+/**
+   Look at the recursively defined List class in list.h.
+   A List is either empty or it has a head and a tail.
+   Implement the toString function that yields a comma-separated
+   string of the list elements. No spaces, just commas.
+   If the list is empty, return an empty string.
+   If the list has length 1, return just the head.
+*/
+string toString(const List& lst)
+{
+	string s;
+	if(!(lst.isEmpty()))
+	{
+		s = "," + lst.head();
+		lst.tail();
+	}
+	else
+	{
+		s += "";
+	}
+}
+
+
+

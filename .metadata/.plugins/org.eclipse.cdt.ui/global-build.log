@@ -1,0 +1,12 @@
+08:51:16 **** Incremental Build of configuration Debug for project Assignment11B ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o HashTests.o "..\\HashTests.cpp" 
+..\HashTests.cpp: In function 'void process_input(std::ifstream&, int&, int&, std::map<std::__cxx11::basic_string<char>, int>&, LinearProbeHT&, int&, QuadraticProbeHT&, int&, ChainedHT&, int&)':
+..\HashTests.cpp:145:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (int i = 0; i < temp_word.length(); i++) {
+                   ~~^~~~~~~~~~~~~~~~~~~~
+..\HashTests.cpp:157:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (int j = i + 1; j < temp_word.length(); j++) {
+                         ~~^~~~~~~~~~~~~~~~~~~~
+g++ -o Assignment11B.exe ChainedHT.o HashTable.o HashTests.o LinearProbeHT.o OpenAddressHT.o QuadraticProbeHT.o 
+Info: Nothing to build for Assignment11B

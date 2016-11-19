@@ -1,0 +1,56 @@
+02:34:32 **** Incremental Build of configuration Debug for project WarAndPeace ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+..\main.cpp: In function 'int main()':
+..\main.cpp:56:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if(m_position != string::npos){
+          ~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:64:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if(j_position != string::npos){
+          ~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:71:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if(b_position != string::npos){
+          ~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:81:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if((split_position_m != string::npos)&& (line[split_position_m + 5] == '\0')){
+           ~~~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:86:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if((split_position_a != string::npos) && split_position_a == 0){
+           ~~~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:93:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if((split_position_j != string::npos)&& (line[split_position_j + 6] == '\0')){
+           ~~~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:98:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if((split_position_b != string::npos) && split_position_b == 0){
+           ~~~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:106:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if((split_position_bo != string::npos)&& (line[split_position_bo + 5] == '\0')){
+           ~~~~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:111:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          if((split_position_d != string::npos) && split_position_d == 0){
+              ~~~~~~~~~~~~~~~~~^~~~~~~~~
+..\main.cpp:120:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int i=0; i<splitLineVectorForMakar.size()-1; i++){
+                   ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:121:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(int j=0; j<splitLineVectorForAlexeevich.size()-1;j++){
+                    ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:130:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int i=0; i<splitLineVectorForJoseph.size()-1; i++){
+                   ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:132:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(int j=0; j<splitLineVectorForBazdeev.size()-1; j++){
+                    ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:141:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int i=0; i<splitLineVectorForBoris.size()-1; i++){
+                   ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:143:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(int j=0; j<splitLineVectorForDrubetskoy.size()-1; j++){
+                    ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\main.cpp:155:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int i=0; i < lineVector.size(); i++){
+                   ~~^~~~~~~~~~~~~~~~~~~
+g++ -o WarAndPeace.exe main.o 
+
+02:34:33 Build Finished (took 1s.59ms)
+

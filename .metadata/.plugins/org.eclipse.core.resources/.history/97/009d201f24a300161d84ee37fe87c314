@@ -1,0 +1,117 @@
+/*
+ * Person.cpp
+ *
+ *  Created on: Nov 2, 2016
+ *      Author: Karan
+ */
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Person.h"
+using namespace std;
+
+/***** Write the constructors. *****/
+Person::Person()
+{
+
+}
+Person::Person(int level, string name)
+{
+	this->level = level;
+	this->name = name;
+	this->spouse_name = "";
+	this->parent = nullptr;
+}
+Person::Person(int level, string name, string spouse)
+{
+	this->level = level;
+	this->name = name;
+	this->spouse_name = spouse;
+	this->parent = nullptr;
+}
+/**
+ * Destructor
+ */
+Person::~Person()
+{
+    /***** Complete this destructor: Recursively delete all the nodes. *****/
+	for(Person* p: children)
+	{
+		delete p;
+	}
+}
+
+/**
+ * Have a child.
+ * @param child pointer to the new child.
+ */
+void Person::have_child(Person *child)
+{
+    /***** Complete this member function. *****/
+	this->children.push_back(child);
+	child->parent = this;
+}
+
+/**
+ * Print a person.
+ */
+void Person::print() const
+{
+    /***** Complete this member function: Recursively print the nodes. *****/
+	cout << this->name;
+	if(this->spouse_name != "")
+	{
+		cout << std::string() + " " + '(' + this->spouse_name + ')' << endl;
+	}
+	else
+	{
+		cout << endl;
+	}
+	for(Person* p:children)
+	{
+		print_bar();
+		p->print();
+	}
+}
+
+/**
+ * Print the vertical bar.
+ */
+void Person::print_bar() const
+{
+    /***** Complete this member function: Recursively print vertical bars. *****/
+		//cout << "|";
+		//cout << "    ";
+	if(this->parent == nullptr)
+			{
+				if(this->parent == nullptr)
+				{
+					cout << "|";
+				}
+
+			}
+			else if(this->parent->parent == nullptr)
+			{
+				parent->print_bar();
+				cout << "   " << "|";
+			}
+			else if(this->parent->parent->parent == nullptr)
+			{
+				parent->print_bar();
+				cout << "   " << "|";
+			}
+			/*if(this->parent->parent != nullptr)
+			{
+				cout << "|" << "   " << "|" << "   "<< "|";
+			}
+			if(this->parent->parent->parent != nullptr)
+			{
+				cout << "|" << "   " << "|" << "   " << "|" << "   ";
+			}*/
+
+}
+
+
+
+
+

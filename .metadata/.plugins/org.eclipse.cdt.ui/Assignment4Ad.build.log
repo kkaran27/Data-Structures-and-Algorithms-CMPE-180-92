@@ -1,0 +1,7 @@
+10:28:48 **** Rebuild of configuration Debug for project Assignment4Ad ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+g++ -o Assignment4Ad.exe main.o 
+
+10:28:51 Build Finished (took 2s.342ms)
+

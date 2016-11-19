@@ -1,0 +1,36 @@
+/*
+ * hash.cpp
+ *
+ *  Created on: Nov 9, 2016
+ *      Author: Karan
+ */
+#include <vector>
+
+using namespace std;
+
+int hashCode(int x, int n)
+{
+   if (x >= 0) return x % n; else return -x % n;
+}
+
+/**
+   Here, we implement chaining, except that we use a vector,
+   not a linked list, for the sequences of elements with the same
+   hash code. Just implement the insert method. If an element is not
+   found, add it to the end of its chain.
+ */
+void insert(vector<vector<int>>& table, int element)
+{
+	int h = hashCode(element, table.size());
+	bool flag = true;
+	for(int i=0; i < table.at(h).size(); i++)
+	{
+		if(table.at(h).at(i) == element)
+		{
+			flag = false;
+		}
+}
+
+
+
+

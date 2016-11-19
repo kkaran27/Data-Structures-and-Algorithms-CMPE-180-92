@@ -1,0 +1,44 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Nov 2, 2016
+ *      Author: Karan
+ */
+#include <string>
+#include<iostream>
+
+using namespace std;
+
+bool allSame(string str);
+
+/**
+   Return true if the given string contains identical
+   characters or is empty. Use recursion. Do not use loops.
+   Hint: str.substr(1) is the substring of str from position 1 to
+   the end.
+*/
+int main()
+{
+	string str = "HHHH";
+	bool b = allSame(str);
+	cout << b << endl;
+}
+bool allSame(string str)
+{
+	if(str.length() == 0)
+	{
+		return true;
+	}
+	int i=0;
+	char first = str.at(i);
+	size_t found = str.substr(++i).find(first);
+	if(found != std::string::npos)
+	{
+		return allSame(str.substr(i)) && allSame(str.substr(i+1));
+	}
+
+}
+
+
+
+

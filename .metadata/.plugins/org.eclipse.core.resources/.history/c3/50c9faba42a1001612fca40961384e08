@@ -1,0 +1,26 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Nov 2, 2016
+ *      Author: Karan
+ */
+#include <string>
+
+using namespace std;
+
+/**
+   Mesh two strings by alternating characters from them. If one string
+   runs out before the other, just pick from the longer one.
+   For example, mesh("Fred", "Wilma") is "FWrieldma".
+   Use recursion. Do not use loops.
+   Hint: str.substr(1) is the substring of str from position 1 to
+   the end.
+*/
+string mesh(string a, string b)
+{
+
+}
+
+
+
+

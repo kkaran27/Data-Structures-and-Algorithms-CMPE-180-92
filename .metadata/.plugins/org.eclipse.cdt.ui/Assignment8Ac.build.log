@@ -1,0 +1,7 @@
+11:36:21 **** Incremental Build of configuration Debug for project Assignment8Ac ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o HungryBug.o "..\\HungryBug.cpp" 
+g++ -o Assignment8Ac.exe Bug.o HungryBug.o Tester.o 
+
+11:36:22 Build Finished (took 920ms)
+

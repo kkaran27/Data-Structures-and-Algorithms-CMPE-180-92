@@ -1,0 +1,128 @@
+/*
+ * ChainedHT.cpp
+ *
+ *  Created on: Nov 15, 2016
+ *      Author: Karan
+ */
+#include <iostream>
+#include <iomanip>
+#include "ChainedHT.h"
+using namespace std;
+
+/**
+ * Default constructor.
+ */
+ChainedHT::ChainedHT() : HashTable() {}
+
+/**
+ * Constructor. Initialize each table slot to nullptr.
+ */
+ChainedHT::ChainedHT(int size) : HashTable(size)
+{
+    /***** Complete this member function. *****/
+	table.resize(size);
+	for(int i=0; i < size; i++)
+	{
+		table.at(i) = nullptr;
+	}
+}
+
+/**
+ * Destructor. Delete all the entries in the collision chains.
+ */
+ChainedHT::~ChainedHT()
+{
+    /***** Complete this member function. *****/
+}
+
+/**
+ * Search for a given table entry. Count the number of probes.
+ * @param key the key of the entry to find.
+ * @param probe_count the cumulative count of probes.
+ * @return a pointer to the entry if found, else return nullptr.
+ */
+HashEntry *ChainedHT::search(const string& word, int& probe_count)
+{
+    int index = hash(word);
+    bool flag = false;
+    HashNode* hashNode = table.at(index);
+    while(hashNode->next != nullptr)
+    {
+    	if(hashNode->entry->word != word)
+    	{
+    		hashNode = hashNode->next;
+    	}
+    	else
+    	{
+    		flag = true;
+    		return hashNode->entry;
+    	}
+    }
+    if(flag == false)
+    {
+    	return nullptr;
+    }
+
+    /***** Complete this member function. *****/
+}
+
+/**
+ * If an entry isn't already in the table, enter it with a
+ * frequency count of 1. If the entry already exists,
+ * update it by incrementing its frequency count by 1.
+ * Count the number of probes from the initial search.
+ * @param key the key of the entry to enter or update.
+ * @return a pointer to the newly entered or updated entry.
+ */
+HashEntry *ChainedHT::enter(const string& word, int& probe_count)
+{
+	int index = hash(word);
+	if(table.at(index) == nullptr)
+	{
+		HashNode *hashNode = new HashNode();
+		HashEntry *hashEn = new HashEntry();
+		hashEn->count = 1;
+		hashEn->word = word;
+		hashNode->entry = hashEn;
+		hashNode->next = nullptr;
+		table.at(index) = hashNode;
+		return hashEn;
+	}
+	else
+	{
+		HashEntry *entry_ptr = search(word, probe_count);
+		if(entry_ptr == nullptr)
+		{
+			HashEntry* hashEntry = new HashEntry();
+			hashEntry->count = 1;
+			hashEntry->word = word;
+			entry_ptr = hashEntry;
+		}
+		else
+		{
+			entry_ptr->count++;
+		}
+	}
+}
+
+/**
+ * Print the contents of the hash table.
+ * Skip empty table slots.
+ */
+void ChainedHT::dump() const
+{
+    /***** Complete this member function. *****/
+}
+
+/**
+ * Compute the average chain length.
+ */
+double ChainedHT::avg_chain_length() const
+{
+    /***** Complete this member function. *****/
+}
+
+
+
+
+

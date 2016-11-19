@@ -1,0 +1,11 @@
+01:14:25 **** Incremental Build of configuration Debug for project Nrupesh ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+..\main.cpp: In function 'void splice(const char*, const char*, char*, int)':
+..\main.cpp:31:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if((strlen(s) + strlen(t)) < rlen) {
+     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+g++ -o Nrupesh.exe main.o 
+
+01:14:26 Build Finished (took 897ms)
+

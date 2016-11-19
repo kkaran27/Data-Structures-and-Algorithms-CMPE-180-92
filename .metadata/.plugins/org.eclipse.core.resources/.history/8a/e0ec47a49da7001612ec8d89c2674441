@@ -1,0 +1,56 @@
+/*
+ * hash.cpp
+ *
+ *  Created on: Nov 9, 2016
+ *      Author: Karan
+ */
+#include <string>
+// #include <functional>
+
+using namespace std;
+
+#include "employee.h"
+
+int hashCode(const double& d)
+{
+   const int* p = reinterpret_cast<const int*>(&d);
+   return p[0] ^ p[1];
+}
+
+/**
+   Implement a hash function for hashing values of class
+   Employee. Return the sum of the hashes of the name and
+   salary.
+
+   To hash a string s, compute
+   ((((s[0] * 31) + s1) * 31 + s[2]) * 31 + ... ) * 31 + s[n - 1]
+   where n is the length of the string.
+
+   For example, the hash code of "Fred" is
+
+   ((('F' * 31 + 'r') * 31 + 'e' ) * 31) + 'd'
+
+   or 2198155.
+
+   To hash a double, XOR the top and bottom 4-byte parts. Use
+   the supplied function.
+
+   For example, the hash code of 2.0 is (0x40000000 ^ 0x00000000)
+   or decimal 1073741824
+   (see https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
+*/
+int hashCode(const Employee& e)
+{
+	string name = e.name();
+	int hashval = name[0] * 31 + name[1];
+	for(int i = 2; i < name.length(); i++)
+	{
+		hashval = hashval * 31 + name[i];
+	}
+	hashval += hashCode(e.salary());
+	return hashval;
+}
+
+
+
+

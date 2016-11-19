@@ -1,0 +1,118 @@
+/*
+ * Person.cpp
+ *
+ *  Created on: Nov 2, 2016
+ *      Author: Karan
+ */
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Person.h"
+using namespace std;
+
+/***** Write the constructors. *****/
+Person::Person()
+{
+
+}
+Person::Person(int level, string name)
+{
+	this->level = level;
+	this->name = name;
+	this->spouse_name = "";
+	this->parent = nullptr;
+}
+Person::Person(int level, string name, string spouse)
+{
+	this->level = level;
+	this->name = name;
+	this->spouse_name = spouse;
+	this->parent = nullptr;
+}
+/**
+ * Destructor
+ */
+Person::~Person()
+{
+    /***** Complete this destructor: Recursively delete all the nodes. *****/
+	if(this->parent != nullptr)
+	{
+		vector<Person*>::iterator it;
+		it = this->parent->children.begin();
+		this->parent->children.erase(it);
+	}
+}
+
+/**
+ * Have a child.
+ * @param child pointer to the new child.
+ */
+void Person::have_child(Person *child)
+{
+    /***** Complete this member function. *****/
+	this->children.push_back(child);
+	child->parent = this;
+}
+
+/**
+ * Print a person.
+ */
+void Person::print() const
+{
+    /***** Complete this member function: Recursively print the nodes. *****/
+	cout << this->name;
+	if(this->spouse_name != "")
+	{
+		cout << std::string() + " " + '(' + this->spouse_name + ')' << endl;
+	}
+	else
+	{
+		cout << endl;
+	}
+	print_bar();
+	if(!this->children.empty())
+	{
+		print_plus();
+		this->children[0]->print();
+	}
+	else
+	{
+		delete this;
+		if(!this->parent->children.empty())
+		{
+			print_plus();
+			this->parent->children[0]->print();
+		}
+		else
+		{
+			print_bar();
+			print_plus();
+			delete this->parent;
+			if(!this->parent->parent->children.empty())
+			{
+				print_plus();
+				this->parent->parent->children[0]->print();
+			}
+
+		}
+	}
+}
+
+/**
+ * Print the vertical bar.
+ */
+void Person::print_bar() const
+{
+    /***** Complete this member function: Recursively print vertical bars. *****/
+	cout << "|" <<endl ;
+}
+
+void Person::print_plus() const
+{
+    /***** Complete this member function: Recursively print vertical bars. *****/
+	cout << "+---" ;
+}
+
+
+
+

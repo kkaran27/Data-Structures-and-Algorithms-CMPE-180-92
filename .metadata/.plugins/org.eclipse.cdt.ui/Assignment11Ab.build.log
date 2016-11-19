@@ -1,0 +1,13 @@
+16:04:34 **** Incremental Build of configuration Debug for project Assignment11Ab ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o hash.o "..\\hash.cpp" 
+..\hash.cpp: In function 'int find(const std::vector<int>&, int)':
+..\hash.cpp:41:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < table.size(); i++)
+                    ~~^~~~~~~~~~~~~~
+g++ -o Assignment11Ab.exe hash.o 
+C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/libmingw32.a(lib64_libmingw32_a-crt0_c.o):crt0_c.c:(.text.startup+0x2e): undefined reference to `WinMain'
+collect2.exe: error: ld returned 1 exit status
+
+16:04:35 Build Finished (took 825ms)
+

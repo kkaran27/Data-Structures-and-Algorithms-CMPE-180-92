@@ -1,0 +1,44 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Nov 2, 2016
+ *      Author: Karan
+ */
+#include <string>
+#include <iostream>
+using namespace std;
+
+string digits(string str);
+/**
+   Given a string, return a string of all digits contained in it.
+   Use recursion. Do not use loops.
+   A digit is a character between '0' and '9' inclusive.
+   Hint: str.substr(1) is the substring of str from position 1 to
+   the end.
+*/
+int main()
+{
+	string str = "H12D4O";
+	string r = digits(str);
+	cout << r;
+
+}
+string digits(string str)
+{
+	if(str.length() == 0)
+	{
+		return "";
+	}
+	if(str.front() >=0 && str.front() <= 9)
+	{
+		return std::string() + str.front() + digits(str.substr(1));
+	}
+	else
+	{
+		return str.substr(1);
+	}
+}
+
+
+
+

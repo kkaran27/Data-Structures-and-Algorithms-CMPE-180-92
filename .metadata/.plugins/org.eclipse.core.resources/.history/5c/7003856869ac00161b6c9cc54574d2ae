@@ -1,0 +1,154 @@
+/*
+ * OpenAddressHT.cpp
+ *
+ *  Created on: Nov 15, 2016
+ *      Author: Karan
+ */
+
+#include <iostream>
+#include <iomanip>
+#include "OpenAddressHT.h"
+#include "HashEntry.h"
+
+using namespace std;
+
+/**
+ * Default constructor
+ */
+OpenAddressHT::OpenAddressHT() : HashTable() {}
+
+/**
+ * Constructor. Initialize each table slot to nullptr.
+ */
+OpenAddressHT::OpenAddressHT(int size) : HashTable(size)
+{
+    /***** Complete this member function. *****/
+	table.resize(size);
+	for(int i = 0; i < size; i++)
+	{
+		table.at(i) = nullptr;
+	}
+}
+
+/**
+ * Destructor. Delete all the entries in the table.
+ */
+OpenAddressHT::~OpenAddressHT()
+{
+    /***** Complete this member function. *****/
+}
+
+/**
+ * Return an entry at a given index of the hash table.
+ * @param index the index.
+ * @return the entry.
+ */
+HashEntry *OpenAddressHT::get_entry(const int index) const
+{
+    /***** Complete this member function. *****/
+}
+
+/**
+ * Search for a given table entry. Count the number of probes.
+ * @param key the key of the entry to find.
+ * @param probe_count the cumulative count of probes.
+ * @return the hash table index of the entry if found, else of an empty slot.
+ */
+int OpenAddressHT::search(const string& key, int& probe_count)
+{
+    /***** Complete this member function. *****/
+
+    // Initial probe index.
+    int index = hash(key);
+    int check_point = index;
+    bool flag = false;
+    //...
+    if(table.at(index != nullptr))
+    {
+    	cout << table.at(index)->word;
+    }
+    if(table.at(index) == nullptr || table.at(index)->word == key)
+    {
+    	probe_count++;
+    	return index;
+    }
+    else
+    {
+    	for(int i = index+1 ; i < size; i++)
+    	{
+    		if(i < size-1)
+    		{
+    			index = next_index(index);
+    			probe_count++;
+    		}
+    		if(table.at(index) == nullptr || table.at(index)->word == key)
+    		{
+    			flag = true;
+    			break;
+    		}
+    	}
+    	if(flag == false)
+    	{
+    		for(int i = 0; i < check_point; i++)
+    		{
+    			index = next_index(index);
+    			probe_count++;
+    			if(table.at(index) == nullptr || table.at(index)->word == key)
+    			{
+    				break;
+    			}
+    		}
+    	}
+    	return index;
+    }
+    //...
+      // of the found entry or of an empty slot
+}
+
+/**
+ * If an entry isn't already in the table, enter it with a
+ * frequency count of 1. If the entry already exists,
+ * update it by incrementing its frequency count by 1.
+ * Count the number of probes from the initial search.
+ * @param key the key of the entry to enter or update.
+ * @return the index of the newly entered or updated entry.
+ */
+int OpenAddressHT::enter(const string& key, int& probe_count)
+{
+    // Search for the entry key.
+    int index = search(key, probe_count);
+
+    /***** Complete this member function. *****/
+    HashEntry* hashEntry;
+
+    if(table.at(index) == nullptr)
+    {
+    	HashEntry h;
+    	h.count=1;
+    	h.word = key;
+    	hashEntry = &h;
+    	table.at(index) = hashEntry;
+    }
+    else
+    {
+    	table.at(index)->count++;
+    }
+    return index;
+}
+
+/**
+ * Print the contents of the hash table.
+ * Skip empty table slots.
+ */
+void OpenAddressHT::dump() const
+{
+    /***** Complete this member function. *****/
+	for(int i = 0; i < size; i++)
+	{
+		if(table.at(i) != nullptr)
+			cout << table.at(i)->word << "\t";
+	}
+}
+
+
+
